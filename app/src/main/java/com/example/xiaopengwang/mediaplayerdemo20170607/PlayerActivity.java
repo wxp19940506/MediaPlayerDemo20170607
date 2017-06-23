@@ -76,10 +76,8 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback, 
         String mGatewayUrl = intent.getStringExtra("gatewayUrl");
         mSurfaceView = (SurfaceView) findViewById(R.id.surfaceView);
         mPlayer = new MediaPlayer();
-        // 1:初始化，app启动一次调用即可
-        ConvivaSessionManager.initClient(this, mGatewayUrl);
+        //2.创建session，在此之前实例化PlayerStateManager对象。创建session表示对一段视频的检测开始
         mStateManager = ConvivaSessionManager.getPlayerStateManager();
-        //2.创建session，表示对一段视频的检测开始
         //自定义Tag
         Map<String, String> tags = new HashMap<String, String>();
         tags.put("key", "value");
@@ -101,7 +99,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback, 
         } catch (ConvivaException e) {
             e.printStackTrace();
         }
-        // 3：创建Session
+        // 创建Session
         ConvivaSessionManager.createConvivaSession(convivaMetaData);
         SurfaceHolder holder = mSurfaceView.getHolder();
         holder.addCallback(this);
@@ -118,7 +116,7 @@ public class PlayerActivity extends Activity implements SurfaceHolder.Callback, 
         mPlayer.setOnPreparedListener(this);
         mPlayer.setOnCompletionListener(this);
         mPlayer.setOnInfoListener(this);
-        // 4：player与session绑定，在mPlayer和mStateManager不为null的时候创建
+        // 3：player与session绑定，在mPlayer和mStateManager不为null的时候创建
         //正常讲这个Interface文件由我们提供，也可以开发者自己写
         mPlayerInterface = new CVMediaPlayerInterface(mStateManager, mPlayer);
         playVideo();

@@ -28,7 +28,7 @@ public class ConvivaSessionManager {
 
     public static int mSessionKey = -1;
     private static final String PLAYER = "ConvivaSessionManager";
-
+    //替换您的Key值
     private static final String customerKey = "1a6d7f0de15335c201e8e9aacbc7a0952f5191d7";
     // The customerKey on Production for customer "c3.DryRun".
 

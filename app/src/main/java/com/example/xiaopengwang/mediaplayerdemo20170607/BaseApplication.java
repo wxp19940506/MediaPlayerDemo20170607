@@ -15,6 +15,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // 1:初始化，app启动一次调用即可
         String mGatewayURL = "https://testonly.conviva.com";
         ConvivaSessionManager.initClient(this, mGatewayURL);
 

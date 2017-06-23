@@ -183,10 +183,10 @@ public class CVMediaPlayerInterface implements MediaPlayer.OnErrorListener,
             if(_mPlayer != null && _mIsPlayerActive) {
                 currPos = _mPlayer.getCurrentPosition();
 
-                //isPlaying is true only if playback is playing or buffering
+                //isPlaying 在Playing或Buffering状态为true
                 if(_mPlayer.isPlaying()) {
 
-                    // if current position and previous position is same
+                    // i如果当前position和前一次position相同
                     if(currPos == _previousPosition  ) {
                         updateState(PlayerState.BUFFERING);
                     } else {
@@ -325,7 +325,7 @@ public class CVMediaPlayerInterface implements MediaPlayer.OnErrorListener,
             return;
         _mIsPlayerActive = false;
         updateState(PlayerState.STOPPED);
-        //可以观察到，每个回掉都会有这种写法，如果不理解，对照写就行，目的是不影响外面对监听事件的使用。
+        //可以观察到，每个回调都会有这种写法，目的是不影响外面对监听事件的使用。如果不理解，对照写就行。
         if (_onCompListenerOrig != null) {
             _inListener = true;
             try {
