@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/controls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/updateBitrate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:onClick="simulateBitrate"
+            android:text="Update Bitrate" />
+
+        <Button
+            android:id="@+id/reportError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:onClick="simulateError"
+            android:text="Report Error" />
+
+        <Button
+            android:id="@+id/podStart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:onClick="podStart"
+            android:text="POD Start" />
+
+        <Button
+            android:id="@+id/podEnd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:onClick="podEnd"
+            android:text="POD End" />
+
+    </LinearLayout>
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/controls"
+        android:layout_centerInParent="true" />
+
+    <ProgressBar
+        android:id="@+id/pbBuffer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="false"
+        android:visibility="gone"/>
+</RelativeLayout>
